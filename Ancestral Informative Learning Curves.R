@@ -11,7 +11,7 @@ library(fastDummies)
 
 #Get your data
 #******CHANGE*********
-FullSet <- read.csv("ForAlex_tobacco_ftnd.csv", header=T)
+FullSet <- read.csv("WideFormData.txt", header=T)
 #Your data should contain only an ID column, a column that represents train and test, your outcome
 #Your predictor and your confounder (in my case, african american or european). To do this method, its 
 #best if you only have two level variables for your confounder and your outcome. 
@@ -22,8 +22,8 @@ Test <- FullSet[FullSet$Set == "TEST", ]
 
 #Only use complete cases
 #******CHANGE********* to the name of your outcome variable after the $
-Train <- Train[complete.cases(Train$FTND_case_control), ]
-Test <- Test[complete.cases(Test$FTND_case_control), ]
+Train <- Train[complete.cases(Train$OUD), ]
+Test <- Test[complete.cases(Test$OUD), ]
 
 #Get rid of the train and test and name your name your ancestry variable  "pheno" and your outcome variable. My outcome is labeled "opidep" 
 #Because my curve is predicting opioid dependence. 
